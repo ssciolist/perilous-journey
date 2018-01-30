@@ -33,15 +33,21 @@ class Test_Linkedlist < Minitest::Test
   end
 
   def test_appended_linked_list_head_next_node_returns_nil
-    #code
+    my_list = LinkedList.new()
+    my_node = my_list.append("West")
+    assert_equal nil, my_list.head.next_node
   end
 
   def test_appended_linked_list_count_reflects_append
-    #code
+    my_list = LinkedList.new()
+    my_node = my_list.append("West")
+    assert_equal 1, my_list.count
   end
 
   def test_list_to_string_method
-    #code
+    my_list = LinkedList.new()
+    my_node = my_list.append("West")
+    assert_equal "The West Family", my_list.to_string
   end
 
 end
