@@ -1,22 +1,21 @@
 > require "./lib/linked_list"
-
 > list = LinkedList.new
 => <LinkedList @head=nil #45678904567>
-
 > list.head
 => nil
-
-> list.append("West")
-=> <Node @surname="West" @next_node=nil #5678904567890>
-
+> list.append("Rhodes")
+=> => <Node @surname="Rhodes" @next_node=nil #5678904567890>
 > list
-=> <LinkedList @head=<Node @surname="West" ... > #45678904567>
-
+=> <LinkedList @head=<Node @surname="Rhodes" ... > #45678904567>
+> list.head
+=> <Node @surname="Rhodes" @next_node=nil #5678904567890>
 > list.head.next_node
 => nil
-
+> list.append("Hardy")
+=> => <Node @surname="Hardy" @next_node=nil #5678904567890>
+> list.head.next_node
+=> <Node @surname="Hardy" @next_node=nil #5678904567890>
 > list.count
-=> 1
-
+=> 2
 > list.to_string
-=> "The West family"
+=> "The Rhodes family, followed by the Hardy family"

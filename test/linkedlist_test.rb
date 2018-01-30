@@ -11,6 +11,7 @@ class Test_Linkedlist < Minitest::Test
   def test_linked_list_exists
     my_list = LinkedList.new()
     assert_instance_of LinkedList, my_list
+    assert_equal my_list.head = nil
   end
 
   def test_linked_list_head_sets_to_nil
@@ -21,6 +22,8 @@ class Test_Linkedlist < Minitest::Test
   def test_linked_list_append_adds_node
     my_list = LinkedList.new()
     my_node = my_list.append("West")
+    my_node2 = my_list.append("Rhodes")
+    binding.pry
     assert_instance_of Node, my_node
   end
 
@@ -49,5 +52,6 @@ class Test_Linkedlist < Minitest::Test
     my_node = my_list.append("West")
     assert_equal "The West Family", my_list.to_string
   end
+
 
 end
