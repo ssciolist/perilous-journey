@@ -8,7 +8,7 @@ class LinkedList
   end
 
   def append(surname)
-    @append = Node.new(surname)
+    @head = Node.new(surname)
   end
 
 
