@@ -57,4 +57,10 @@ class LinkedList < Node
     allthefams
   end
 
+  def prepend(surname)
+    newhead = @head
+    @head = Node.new(surname)
+    @head.next_node = newhead
+  end
+
 end

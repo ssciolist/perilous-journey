@@ -1,16 +1,5 @@
-> require "./lib/linked_list"
-> list = LinkedList.new
-=> <LinkedList @head=nil #45678904567>
-> list.head
-=> nil
-> list.append("Rhodes")
-=> => <Node @surname="Rhodes" @next_node=nil #5678904567890>
-> list
-=> <LinkedList @head=<Node @surname="Rhodes" ... > #45678904567>
-> list.head
-=> <Node @surname="Rhodes" @next_node=nil #5678904567890>
-> list.head.next_node
-=> nil
+
+
 > list.append("Hardy")
 => => <Node @surname="Hardy" @next_node=nil #5678904567890>
 > list.head.next_node
