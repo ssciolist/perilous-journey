@@ -72,6 +72,16 @@ class Test_Linkedlist < Minitest::Test
     assert_equal "Brooks", my_list.head.next_node.surname
   end
 
+  def test_insert_puts_family_in_preserves_list
+    my_list = LinkedList.new
+    my_list.append("Brooks")
+    my_list.append("Henderson")
+    my_list.insert(1, "Lawson")
+    assert_equal "Brooks", my_list.head.surname
+    assert_equal "Lawson", my_list.head.next_node.surname
+    assert_equal "Henderson", my_list.head.next_node.next_node.surname
+  end
+
 
 
 
