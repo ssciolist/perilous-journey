@@ -64,20 +64,14 @@ class LinkedList < Node
   end
 
   def insert(position, surname)
-    full_list = @head
+    newnode = Node.new(surname)
     current_node = @head
-    position.times do
-      front_list = current_node
+    # looper = position - 1
+    0.times do
       current_node = current_node.next_node
     end
-    front_list
-    @head = front_list
-    front_list.next_node.next_node = current_node
-    # backlist = current_node
-    # @head = Node.new(surname)
-    # @head.next_node = backlist
-    # backlist = @head
-
+    newnode.next_node = current_node
+    current_node.next_node = newnode
   end
 
 end

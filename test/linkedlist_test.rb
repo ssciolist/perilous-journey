@@ -77,6 +77,7 @@ class Test_Linkedlist < Minitest::Test
     my_list.append("Brooks")
     my_list.append("Henderson")
     my_list.insert(1, "Lawson")
+    binding.pry
     assert_equal "Brooks", my_list.head.surname
     assert_equal "Lawson", my_list.head.next_node.surname
     assert_equal "Henderson", my_list.head.next_node.next_node.surname
