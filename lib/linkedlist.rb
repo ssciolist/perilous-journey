@@ -1,6 +1,7 @@
 require "./lib/node"
+require "pry"
 
-class LinkedList
+class LinkedList < Node
   attr_reader :head
 
 
@@ -12,24 +13,48 @@ class LinkedList
     if @head == nil
       @head = Node.new(surname)
     else
-      next_node = Node.new(surname)
+      current_node = @head
+      until current_node.next_node.nil?
+        current_node = current_node.next_node
+      end
+      current_node.next_node = Node.new(surname)
     end
   end
 
   def count
+
     count = 0
 
     if @head.next_node == nil
       count +=1
-    elsif
-      @anothernode.next_node == nil
+    else
+      current_node = @head
+      while current_node != nil
+        count +=1
+        current_node = current_node.next_node
+      end
+
     end
 
     count
   end
 
   def to_string
-    "The #{@head.surname} Family"
+    firstfamily = "The #{@head.surname} Family"
+
+    if @head.next_node.nil?
+      allthefams = firstfamily
+    else
+      current_node = @head
+      until current_node.next_node == nil
+        # binding.pry
+        familyname = current_node.next_node.surname
+        nextfamily = ", followed by the #{familyname} family"
+        allthefams = firstfamily += nextfamily
+        current_node = current_node.next_node
+      end
+    end
+    allthefams
   end
 
 end
