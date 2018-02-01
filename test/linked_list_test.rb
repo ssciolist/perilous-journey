@@ -97,7 +97,7 @@ class Test_Linkedlist < Minitest::Test
     my_list.append("McKinney")
     my_list.append("Lawson")
     my_list.append("Brooks")
-    assert_equal "The McKinney family, followed by the Lawson family, followed by the Brooks family", my_list.find(1,3)
+    assert_equal "The McKinney family, followed by the Lawson family, followed by the Brooks family", my_list.find(0,3)
   end
 
   def test_includes_searches_for_a_name_in_list

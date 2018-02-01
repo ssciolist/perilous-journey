@@ -84,16 +84,14 @@ class LinkedList < Node
     end
 
     firstfamily = current_node.surname
-
+    nextfamily_string = ""
     number_of_next_families = number_of_families - 1
 
     number_of_next_families.times do
       nextfamily = current_node.next_node.surname
       nextfamily_string += ", followed by the #{nextfamily} family"
       current_node = current_node.next_node
-      nextfamily_string
     end
-
 
     "The #{firstfamily} family#{nextfamily_string}"
 
