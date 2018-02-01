@@ -2,8 +2,7 @@ require "./lib/node"
 require "pry"
 
 class LinkedList < Node
-  attr_reader :head
-
+  # attr_reader :head <don't seem to need this
 
   def initialize
     @head = nil
@@ -14,15 +13,16 @@ class LinkedList < Node
       @head = Node.new(surname)
     else
       current_node = @head
+
       until current_node.next_node.nil?
         current_node = current_node.next_node
       end
+
       current_node.next_node = Node.new(surname)
     end
   end
 
   def count
-
     count = 0
 
     if @head.next_node == nil
@@ -45,6 +45,7 @@ class LinkedList < Node
       allthefams = firstfamily
     else
       current_node = @head
+
       until current_node.next_node == nil
         familyname = current_node.next_node.surname
         nextfamily = ", followed by the #{familyname} family"
@@ -52,6 +53,7 @@ class LinkedList < Node
         current_node = current_node.next_node
       end
     end
+
     allthefams
   end
 
@@ -64,32 +66,16 @@ class LinkedList < Node
   def insert(position, surname)
     newnode = Node.new(surname)
     current_node = @head
+
     looper = position - 1
     looper.times do
       current_node = current_node.next_node
     end
+
     newnode.next_node = current_node.next_node
     current_node.next_node = newnode
   end
 
-  def find(position, number_of_families)
-    current_node = @head
-    familynames = []
-
-    position.times do
-      current_node = current_node.next_node
-    end
-    familynames << "the #{current_node.surname} family"
-
-    (number_of_families-1).times do
-      familynames << "the #{current_node.surname} family"
-      current_node = current_node.next_node
-    end
-    x = familynames.join(", followed by ").sub("t", "T")
-
-    binding.pry
-
-  end
   # def find(position, number_of_families)
   #   current_node = @head
   #
@@ -107,20 +93,25 @@ class LinkedList < Node
   #
   # end
 
-  def includes?(search_name)
-    current_node = @head
+  # def includes?(search_name)
+  #   current_node = @head
+  #
+  #   if current_node.surname == search_name
+  #       true
+  #   else
+  #     current_node = current_node.next_node
+  #     until current_node.next_node == nil
+  #
+  #     else
+  #       false
+  #     end
+  #   end
 
-    until current_node.surname == search_name
-      current_node = current_node.next_node
-    end
-
-  end
+  # end
 
   # def pop
   #   current_node = @head
   #
   # end
-
-
 
 end

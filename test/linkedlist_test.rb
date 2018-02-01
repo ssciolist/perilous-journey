@@ -83,6 +83,7 @@ class Test_Linkedlist < Minitest::Test
   end
 
   def test_find_locates_one_family
+    skip
     my_list = LinkedList.new
     my_list.append("McKinney")
     my_list.append("Lawson")
@@ -91,7 +92,7 @@ class Test_Linkedlist < Minitest::Test
   end
 
   def test_find_can_return_many_surnames
-
+    skip
     my_list = LinkedList.new
     my_list.append("McKinney")
     my_list.append("Lawson")
