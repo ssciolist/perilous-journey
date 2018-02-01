@@ -47,7 +47,6 @@ class LinkedList < Node
     else
       current_node = @head
       until current_node.next_node == nil
-        # binding.pry
         familyname = current_node.next_node.surname
         nextfamily = ", followed by the #{familyname} family"
         allthefams = firstfamily += nextfamily
@@ -66,11 +65,11 @@ class LinkedList < Node
   def insert(position, surname)
     newnode = Node.new(surname)
     current_node = @head
-    # looper = position - 1
-    0.times do
+    looper = position - 1
+    looper.times do
       current_node = current_node.next_node
     end
-    newnode.next_node = current_node
+    newnode.next_node = current_node.next_node
     current_node.next_node = newnode
   end
 
