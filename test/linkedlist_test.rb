@@ -82,6 +82,14 @@ class Test_Linkedlist < Minitest::Test
     assert_equal "Henderson", my_list.head.next_node.next_node.surname
   end
 
+  def test_find_locates_one_family
+    my_list = LinkedList.new
+    my_list.append("McKinney")
+    my_list.append("Lawson")
+    my_list.append("Brooks")
+    assert_equal "The Brooks family", my_list.find(2)
+  end
+
 
 
 

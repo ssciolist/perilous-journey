@@ -33,7 +33,6 @@ class LinkedList < Node
         count +=1
         current_node = current_node.next_node
       end
-
     end
 
     count
@@ -71,6 +70,17 @@ class LinkedList < Node
     end
     newnode.next_node = current_node.next_node
     current_node.next_node = newnode
+  end
+
+  def find(position)
+    current_node = @head
+
+    position.times do
+      current_node = current_node.next_node
+    end
+
+    family_name = current_node.surname
+    "The #{family_name} family"
   end
 
 end
