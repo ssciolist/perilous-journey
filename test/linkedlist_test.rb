@@ -87,10 +87,45 @@ class Test_Linkedlist < Minitest::Test
     my_list.append("McKinney")
     my_list.append("Lawson")
     my_list.append("Brooks")
-    assert_equal "The Brooks family", my_list.find(2)
+    assert_equal "The Brooks family", my_list.find(2, 1)
   end
 
+  def test_find_can_return_many_surnames
 
+    my_list = LinkedList.new
+    my_list.append("McKinney")
+    my_list.append("Lawson")
+    my_list.append("Brooks")
+    assert_equal "The McKinney family, followed by the Lawson family, followed by the Brooks family", my_list.find(1,3)
+  end
 
+  def test_includes_searches_for_a_name_in_list
+    skip
+    my_list = LinkedList.new
+    my_list.append("McKinney")
+    my_list.append("Lawson")
+    my_list.append("Brooks")
+    assert my_list.includes?("Brooks")
+  end
 
+  def test_includes_searches_for_a_name
+    skip
+    my_list = LinkedList.new
+    my_list.append("McKinney")
+    my_list.append("Lawson")
+    my_list.append("Brooks")
+    refute my_list.includes?("Chapman")
+  end
+
+  def test_pop_method_removes_end
+  skip
+    my_list = LinkedList.new
+    my_list.append("McKinney")
+    my_list.append("Lawson")
+    my_list.append("Brooks")
+    my_list.pop
+    assert my_list.head.next_node.next_node.nil?
+    my_list.pop
+    assert my_list.head.next_node.nil?
+  end
 end
