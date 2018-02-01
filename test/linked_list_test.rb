@@ -3,7 +3,7 @@ require "minitest/autorun"
 require "minitest/pride"
 require "pry"
 
-require "./lib/linkedlist"
+require "./lib/linked_list"
 
 
 class Test_Linkedlist < Minitest::Test
@@ -101,7 +101,6 @@ class Test_Linkedlist < Minitest::Test
   end
 
   def test_includes_searches_for_a_name_in_list
-    skip
     my_list = LinkedList.new
     my_list.append("McKinney")
     my_list.append("Lawson")
@@ -109,8 +108,7 @@ class Test_Linkedlist < Minitest::Test
     assert my_list.includes?("Brooks")
   end
 
-  def test_includes_searches_for_a_name
-    skip
+  def test_includes_searches_for_a_name_not_in_list
     my_list = LinkedList.new
     my_list.append("McKinney")
     my_list.append("Lawson")
@@ -119,7 +117,6 @@ class Test_Linkedlist < Minitest::Test
   end
 
   def test_pop_method_removes_end
-  skip
     my_list = LinkedList.new
     my_list.append("McKinney")
     my_list.append("Lawson")
