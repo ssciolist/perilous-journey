@@ -76,22 +76,28 @@ class LinkedList < Node
     current_node.next_node = newnode
   end
 
-  # def find(position, number_of_families)
-  #   current_node = @head
-  #
-  #   position.times do
-  #     current_node = current_node.next_node
-  #   end
-  #
-  #   familynames = []
-  #   number_of_families.times do
-  #     binding.pry
-  #     familynames << "the #{current_node.surname} family"
-  #     current_node = current_node.next_node
-  #   end
-  #   familynames.join(", followed by ").sub("t", "T")
-  #
-  # end
+  def find(position, number_of_families)
+    current_node = @head
+
+    position.times do
+      current_node = current_node.next_node
+    end
+
+    firstfamily = current_node.surname
+
+    number_of_next_families = number_of_families - 1
+
+    number_of_next_families.times do
+      nextfamily = current_node.next_node.surname
+      nextfamily_string += ", followed by the #{nextfamily} family"
+      current_node = current_node.next_node
+      nextfamily_string
+    end
+
+
+    "The #{firstfamily} family#{nextfamily_string}"
+
+  end
 
   def includes?(search_name)
     current_node = @head
